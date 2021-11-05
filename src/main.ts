@@ -1,9 +1,8 @@
 import * as readline from "readline";
 import * as fs from "fs";
 import settings from "./aoc_config.json";
-import day01 from "./solutions/day01";
-import day02 from "./solutions/day02";
-export * from "./solutions/day01";
+import * as s from "./solutions";
+import {Answers} from "./utils";
 
 let rl =  readline.createInterface({
     input: process.stdin,
@@ -11,8 +10,9 @@ let rl =  readline.createInterface({
 });
 
 const solutions : {[n: number]: Function} = {
-    1: day01,
-    2: day02
+    1: s.day01,
+    2: s.day02,
+    3: s.day03
 }
 
 function main(){

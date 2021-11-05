@@ -1,3 +1,4 @@
+import {Answers} from "../utils";
 
 function to_asc(line:string){
     let nums = [];
@@ -25,7 +26,7 @@ function solve(ins){
     return [paper.toString(),ribbon.toString()];
 }
 
-export default function day02(input:string) : Answers{
+export default function main(input:string) : Answers{
     let ins = input.split("\n").map(l => to_asc(l));
 
     let [p1,p2] = solve(ins);
