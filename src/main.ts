@@ -12,7 +12,8 @@ let rl =  readline.createInterface({
 const solutions : {[n: number]: Function} = {
     1: s.day01,
     2: s.day02,
-    3: s.day03
+    3: s.day03,
+    4: s.day04
 }
 
 function main(){

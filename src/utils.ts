@@ -41,4 +41,5 @@ export class GridMap<T>{
     }
 }
 
+//simple operators for map updating
 export function increment(a:number){return a + 1};
