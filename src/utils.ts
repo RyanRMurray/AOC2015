@@ -5,7 +5,7 @@ export interface Answers {
 
 export class GridMap<T>{
     private map = new Map<string,T>();
-    private default;
+    private default: T;
 
     constructor(d:T){
         this.default = d;
