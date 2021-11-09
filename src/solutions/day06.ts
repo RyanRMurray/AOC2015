@@ -3,7 +3,7 @@ import { Answers, GridMap, increment } from "../utils";
 const turn_on = (b:boolean) => {return true};
 const turn_off = (b:boolean) => {return false};
 const toggle = (b:boolean) => {return !b};
-const re = new RegExp(/(.+) (\d+),(\d+) through (\d+),(\d+)/);
+const re = new RegExp(/(\d+) -> (.)|(.) (.+) (.) -> (.)|NOT (.) -> (.)/);
 
 const t_to_f = {
     "turn on"  : turn_on,
