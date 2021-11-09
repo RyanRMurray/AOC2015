@@ -39,6 +39,10 @@ export class GridMap<T>{
     get keys(){
         return this.map.keys();
     }
+
+    get values(){
+        return this.map.values();
+    }
 }
 
 //simple operators for map updating

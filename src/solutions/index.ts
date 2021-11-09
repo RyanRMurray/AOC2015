@@ -3,3 +3,4 @@ export {default as day02} from "./day02";
 export {default as day03} from "./day03";
 export {default as day04} from "./day04";
 export {default as day05} from "./day05";
+export {default as day06} from "./day06";
