@@ -19,7 +19,9 @@ const solutions : {[n: number]: Function} = {
     7: s.day07,
     8: s.day08,
     9: s.day09,
-    10: s.day10
+    10: s.day10,
+    11: s.day11,
+    12: s.day12
 }
 
 function main(){
