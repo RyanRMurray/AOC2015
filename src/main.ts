@@ -21,7 +21,8 @@ const solutions : {[n: number]: Function} = {
     9: s.day09,
     10: s.day10,
     11: s.day11,
-    12: s.day12
+    12: s.day12,
+    13: s.day13
 }
 
 function main(){

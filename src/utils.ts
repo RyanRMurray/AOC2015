@@ -45,5 +45,28 @@ export class GridMap<T>{
     }
 }
 
+
+export function permute(somearray){
+    let res = [];
+
+    function perm(a,memo?){
+        let current = memo || [];
+        memo = memo || [];
+
+        for(let i = 0; i < a.length; i++){
+            current = a.splice(i,1);
+            if(a.length === 0){
+                res.push(memo.concat(current));
+            }
+            perm(a.slice(), memo.concat(current));
+            a.splice(i, 0, current[0]);
+        }
+
+        return res;
+    }
+
+    return perm(somearray);
+}
+
 //simple operators for map updating
 export function increment(a:number){return a + 1};

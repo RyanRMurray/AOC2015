@@ -10,3 +10,4 @@ export {default as day09} from "./day09";
 export {default as day10} from "./day10";
 export {default as day11} from "./day11";
 export {default as day12} from "./day12";
+export {default as day13} from "./day13";

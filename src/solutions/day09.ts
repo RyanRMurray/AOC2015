@@ -1,4 +1,4 @@
-import { Answers } from "../utils";
+import { Answers, permute } from "../utils";
 
 const re = new RegExp(/(.+) to (.+) = (\d+)/);
 type Conns = Map<string, Map<string, number>>
@@ -14,28 +14,6 @@ function sum_path(path : [string], map : Conns): number | null{
     }
 
     return s
-}
-
-function permute(somearray){
-    let res = [];
-
-    function perm(a,memo?){
-        let current = memo || [];
-        memo = memo || [];
-
-        for(let i = 0; i < a.length; i++){
-            current = a.splice(i,1);
-            if(a.length === 0){
-                res.push(memo.concat(current));
-            }
-            perm(a.slice(), memo.concat(current));
-            a.splice(i, 0, current[0]);
-        }
-
-        return res;
-    }
-
-    return perm(somearray);
 }
 
 export default function main(input: string): Answers{
