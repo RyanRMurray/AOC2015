@@ -3,6 +3,69 @@ export interface Answers {
     part2:string
 }
 
+//An object representing a weighted graph, using string labels for nodes.
+//Note: maybe genericise this later?
+export class WGraph<V>{
+    private map: Record<string,Record<string,V>> = {};
+    private ls: Set<string> = new Set();
+    private default: V;
+
+    constructor(d: V){
+        this.default = d;
+    }
+
+    has(a:string,b:string){
+        return (a in this.map) && (b in this.map[a])
+    }
+
+    ord(a:string,b:string){
+        if(a > b){
+            return [b,a];
+        }
+        return [a,b];
+    }
+
+    add(a:string, b:string, val:V){
+        this.ls.add(a);
+        this.ls.add(b);
+
+        [a,b] = this.ord(a,b);
+
+        if(!(a in this.map)){
+            this.map[a] = {};
+        }
+        if(!(b in this.map)){
+            this.map[b] = {};
+        }
+        this.map[a][b] = val;
+    }
+
+    update(a:string, b:string, op: (arg:V) => V){
+        [a,b] = this.ord(a,b);
+
+        if(this.has(a,b)){
+            this.map[a][b] = op(this.map[a][b]);
+        }else{
+            this.add(a,b,op(this.default));
+        }
+    }
+
+    get(a:string,b:string){
+        [a,b] = this.ord(a,b);
+
+        if(this.has(a,b)){
+            return this.map[a][b];
+        }
+
+        return this.default
+    }
+
+    get labels(){
+        return this.ls
+    }
+}
+
+//An object representing an infinitely large cartesian grid of arbitrary dimension
 export class GridMap<T>{
     private map = new Map<string,T>();
     private default: T;
@@ -70,3 +133,5 @@ export function permute(somearray){
 
 //simple operators for map updating
 export function increment(a:number){return a + 1};
+
+export function add(a:number,b:number){return a+b};
